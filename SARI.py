@@ -185,6 +185,9 @@ def SARIsent (ssent, csent, rsents) :
     return finalscore
 
 
+#Edits below by UC Davis Computational Linguisitcs Lab
+#Allow computation of SARI for aligned text documents
+
 #fnamenorm = "data_unk/test.8turkers.tok.norm.unk"
 fnamesimp   = "data/turkcorpus/test.8turkers.tok.simp"
 fnamecand = "test2.txt"

@@ -1,6 +1,5 @@
 # 01 Sept, 2017
 # UC Davis Computational Linguisitics Lab
-# Author: Sam Davidson
 
 # Program to locate parsed sentences in 
 # Stanford CoreNLP XML formated files and extract same.

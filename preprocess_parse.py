@@ -1,7 +1,7 @@
 """
 preprocess_parse.py
 UC Davis Computational Linguistics Lab
-05 Sept. 2017 by Sam Davidson
+05 Sept. 2017
 Input: Standford CoreNLP format parsed sentences - 1 per line
 Output: Parsed sentences with part of speech tags duplicated on
 	both opening and closing parentheses.

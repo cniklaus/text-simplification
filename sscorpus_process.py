@@ -1,3 +1,5 @@
+#Split SSCorpus's tab-delimited format into separate files
+
 import io
 
 dest1 = io.open('sscorpus_norm.txt', mode='a+', encoding='UTF-8')
