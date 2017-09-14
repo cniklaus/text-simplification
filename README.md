@@ -1,6 +1,6 @@
 # text-simplification
 
-SARI.py originally by Wei Xu (Ohio State University).  If used, please reference her paper: 
+SARI.py originally by Wei Xu (Ohio State University).  We have modified it to allow use on sentence-aligned text files rather than individual sentences.  If used, please reference her paper: 
 <pre><code>
  @article{Xu-EtAl:2016:TACL,
  author = {Wei Xu and Courtney Napoles and Ellie Pavlick and Quanze Chen and Chris Callison-Burch},
