@@ -1,20 +1,10 @@
-"""
-preprocess_parse.py
-UC Davis Computational Linguistics Lab
-05 Sept. 2017
-Input: Standford CoreNLP format parsed sentences - 1 per line
-Output: Parsed sentences with part of speech tags duplicated on
-	both opening and closing parentheses.
-"""
 from pythonds.basic.stack import Stack
 import io
 
-#output file to be created - update as needed
 out = io.open("simple/val_simple_tree.processed.txt", mode='a+', encoding='utf-8')
 
-#open source file - update as needed
 with io.open('simple/val_simple_tree.txt', encoding='utf-8') as parse:
-  for line in parse: #one parse tree per line
+  for line in parse:
     stack = Stack()
     resultString = ""
     tokens = line.split()

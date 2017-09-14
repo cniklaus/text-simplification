@@ -1,4 +1,5 @@
-
+# =======================================================
+#  SARI -- Text Simplification Tunable Evaluation Metric
 # =======================================================
 #
 # Author: Wei Xu (UPenn xwe@cis.upenn.edu)
@@ -103,7 +104,7 @@ def SARIngram(sgrams, cgrams, rgramslist, numref):
     addscore_recall = 0
     if len(addgramcounter) > 0:
     	addscore_precision = addtmpscore / len(addgramcounter)
-    if len(addgramcounter) > 0:
+    if len(addgramcounterall) > 0:
     	addscore_recall = addtmpscore / len(addgramcounterall)
     addscore = 0
     if addscore_precision > 0 or addscore_recall > 0:
@@ -184,42 +185,32 @@ def SARIsent (ssent, csent, rsents) :
 
     return finalscore
 
-
-#Edits below by UC Davis Computational Linguisitcs Lab
-#Allow computation of SARI for aligned text documents
-
 #fnamenorm = "data_unk/test.8turkers.tok.norm.unk"
-fnamesimp   = "data/turkcorpus/test.8turkers.tok.simp"
-fnamecand = "test2.txt"
+fnamesimp = sys.argv[1]
+fnamecand = sys.argv[2]
 #fnamesimp   = "data/turkcorpus/test.8turkers.tok.simp"
-#fnameturk  = "data_unk/test.8turkers.tok.turk.unk."
-fnameturk  = "data/turkcorpus/test.8turkers.tok.turk."
-
-#ssent = "About 95 species are currently accepted ."
-#csent1 = "About 95 you now get in ."
-#csent2 = "About 95 species are now agreed ."
-#csent3 = "About 95 species are currently agreed ."
-#rsents = ["About 95 species are currently known .", "About 95 species are now accepted .", "95 species are now accepted ."]
+#fnameturk = "data_unk/tune.8turkers.tok.turk.unk."
+fnameturk  = sys.argv[3]
 
 ssentlist = []
 csentlist = []
 
-with open(fnamesimp) as s:
+with io.open(fnamesimp, encoding='utf-8') as s:
   for line in s:
     ssentlist.append(line)
 
-with open(fnamecand) as c:
+with io.open(fnamecand, encoding='utf-8') as c:
   for line in c:
     csentlist.append(line)
 
 turkList = []
 
-for i in range(359):
+for i in range(len(ssentlist)):
   a = []
   turkList.append(a)
 
 for i in range(8):
-  with open(fnameturk + str(i)) as t:
+  with io.open(fnameturk + str(i), encoding = 'utf-8') as t:
     count = 0
     for line in t:
       turkList[count].append(line)
@@ -228,15 +219,11 @@ for i in range(8):
 sariList = []
 sariSum = 0
 
-for i in range(359):
+for i in range(len(ssentlist)):
   sari = SARIsent(ssentlist[i], csentlist[i], turkList[i])
   sariList.append(sari)
   sariSum += sari
 
-sariAvg = sariSum/359
+sariAvg = sariSum/len(ssentlist)
 
-print sariAvg
-
-#print SARIsent(ssent, csent1, rsents)
-#print SARIsent(ssent, csent2, rsents)
-#print SARIsent(ssent, csent3, rsents)
+print(sariAvg)
