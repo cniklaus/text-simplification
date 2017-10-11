@@ -1,3 +1,12 @@
+October 11, 2017
+
+UC Davis Computational Linguistics Lab
+
+Script to duplicate tags in CoreNLP-formatted files
+that have been stripped of XML tags
+
+"""
+
 from pythonds.basic.stack import Stack
 import io
 

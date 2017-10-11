@@ -1,17 +1,22 @@
-# 01 Sept, 2017
+# 1 Sept, 2017
 # UC Davis Computational Linguisitics Lab
 
 # Program to locate parsed sentences in 
 # Stanford CoreNLP XML formated files and extract same.
 
+# Usage:  clean_parse.py input_file_base output_file_name num_files
 
 import re
 import io
+import sys
 
-tree = io.open('normal/train_normal_tree.txt', 'a+', encoding = 'utf-8')
+tree = io.open(sys.argv[2], 'a+', encoding = 'utf-8')
 
-for i in range(10):
-  f = io.open('normal/train/train_normal' + str(i) + '.xml', encoding = 'utf-8')
+for i in range(int(sys.argv[3])):
+  if int(sys.argv[3]) > 1:
+    f = io.open(sys.argv[1] + str(i) + '.xml', encoding = 'utf-8')
+  else:
+    f = io.open(sys.argv[1] + '.xml', encoding = 'utf-8')
   text = f.read()
   f.close()
 
@@ -21,3 +26,4 @@ for i in range(10):
     tree.write(match + '\n')
 
 tree.close()
+

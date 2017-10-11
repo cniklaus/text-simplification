@@ -1,3 +1,13 @@
+"""
+October 11, 2017
+
+UC Davis Computational Linguistics Lab
+
+Script to remove POS tags from words in preprocessed CoreNLP files,
+leaving phrase-level tags intact
+
+"""
+
 import io, re
 
 output = io.open('simple/pos_removed/test_simple_tree.txt', mode = 'a+', encoding = 'utf-8')
