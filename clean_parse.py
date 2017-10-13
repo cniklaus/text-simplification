@@ -1,10 +1,12 @@
-# 1 Sept, 2017
-# UC Davis Computational Linguisitics Lab
+"""
+1 Sept, 2017
+UC Davis Computational Linguisitics Lab
 
-# Program to locate parsed sentences in 
-# Stanford CoreNLP XML formated files and extract same.
+Program to locate parsed sentences in 
+Stanford CoreNLP XML formated files and extract same.
 
-# Usage:  clean_parse.py input_file_base output_file_name num_files
+Usage:  clean_parse.py input_file_base output_file_name num_files
+"""
 
 import re
 import io

@@ -1,3 +1,4 @@
+"""
 October 11, 2017
 
 UC Davis Computational Linguistics Lab
@@ -5,14 +6,15 @@ UC Davis Computational Linguistics Lab
 Script to duplicate tags in CoreNLP-formatted files
 that have been stripped of XML tags
 
+Usage: python preprocess_parse.py infile_name outfile_name
 """
 
 from pythonds.basic.stack import Stack
-import io
+import io, sys
 
-out = io.open("simple/val_simple_tree.processed.txt", mode='a+', encoding='utf-8')
+outfile = io.open(sys.argv[2], mode='a+', encoding='utf-8')
 
-with io.open('simple/val_simple_tree.txt', encoding='utf-8') as parse:
+with io.open(sys.argv[1], encoding='utf-8') as parse:
   for line in parse:
     stack = Stack()
     resultString = ""
@@ -20,10 +22,10 @@ with io.open('simple/val_simple_tree.txt', encoding='utf-8') as parse:
     for token in tokens:
       if '(' in token:
         stack.push(token)
-	resultString += (token + ' ')
+        resultString += (token + ' ')
       elif ')' in token:
-	for i in range(len(token)-1):
-	  if token[i] == ')':
+        for i in range(len(token)-1):
+          if token[i] == ')':
             match = stack.pop()
             resultString += (' ' + token[i] + match[1:])
           else:
@@ -36,5 +38,5 @@ with io.open('simple/val_simple_tree.txt', encoding='utf-8') as parse:
       else:
         resultString += (token + ' ')
     resultString += '\n'
-    out.write(resultString)
+    outfile.write(resultString)
 
