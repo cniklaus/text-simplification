@@ -16,7 +16,9 @@ f = io.open(sys.argv[1], encoding='utf8')
 
 dump_path = sys.argv[2]
 
-line_count = 327382/2
+# TODO get line count of any input file
+line_count = sum(1 for line in f)
+
 
 per_file = line_count/10
 
@@ -32,6 +34,8 @@ d6 = io.open(dump_path + '6', mode="a+", encoding='utf8')
 d7 = io.open(dump_path + '7', mode="a+", encoding='utf8')
 d8 = io.open(dump_path + '8', mode="a+", encoding='utf8')
 d9 = io.open(dump_path + '9', mode="a+", encoding='utf8')
+
+f = io.open(sys.argv[1], encoding='utf8')
 
 for line in f:
   if index < per_file:
