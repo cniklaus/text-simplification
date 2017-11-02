@@ -7,6 +7,7 @@ Program to parse datasets using CoreNLP server.
 In order to maintain consistent line counts between aligned text files,
 this program forces all parse output from a single source line
 to a single output line, regardless of parse output.
+This is required for future processing and for RNN training.
 
 Usage: python3 parse_coreNLP.py input_filename output_filename
 """
