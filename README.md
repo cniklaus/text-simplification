@@ -22,5 +22,5 @@ SARI.py originally by Wei Xu (Ohio State University).  We have modified it to al
 ## Contributors
 * [Richard Kim](https://github.com/khgkim)
 * [Lauren Namdar](https://github.com/lnamdar)
-* [Samuel Davidson](https://github.com/ssdavidson)
+* [Sam Davidson](https://github.com/ssdavidson)
 * Kenji Sagae
